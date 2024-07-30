@@ -40,12 +40,20 @@ java GuessingGame
 Example
 
 New Round! Guess the number between 1 and 100. You have 10 attempts.
+
 Enter your guess: 50
+
 Too low! Try again.
+
 Enter your guess: 75
+
 Too high! Try again.
+
 Enter your guess: 60
+
 Correct! You've guessed the number.
+
 Do you want to play another round? (yes/no): no
+
 
 Game Over! You played 1 rounds and your score is: 8
