@@ -1,24 +1,51 @@
-# Compiled class file
-*.class
+import java.util.Random;
+import java.util.Scanner;
 
-# Log file
-*.log
+public class GuessingGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
-# BlueJ files
-*.ctxt
+        int minNumber = 1;
+        int maxNumber = 100;
+        int maxAttempts = 10;
+        int score = 0;
+        int roundsPlayed = 0;
+        boolean playAgain = true;
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+        while (playAgain) {
+            int targetNumber = random.nextInt(maxNumber - minNumber + 1) + minNumber;
+            int attempts = 0;
+            boolean guessedCorrectly = false;
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+            System.out.println("\nNew Round! Guess the number between " + minNumber + " and " + maxNumber + ". You have " + maxAttempts + " attempts.");
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+            while (attempts < maxAttempts && !guessedCorrectly) {
+                System.out.print("Enter your guess: ");
+                int guess = scanner.nextInt();
+                attempts++;
+
+                if (guess == targetNumber) {
+                    guessedCorrectly = true;
+                    score += (maxAttempts - attempts + 1); // Score based on remaining attempts
+                    System.out.println("Correct! You've guessed the number.");
+                } else if (guess < targetNumber) {
+                    System.out.println("Too low! Try again.");
+                } else {
+                    System.out.println("Too high! Try again.");
+                }
+            }
+
+            if (!guessedCorrectly) {
+                System.out.println("You've used all attempts. The correct number was: " + targetNumber);
+            }
+
+            roundsPlayed++;
+            System.out.print("Do you want to play another round? (yes/no): ");
+            playAgain = scanner.next().equalsIgnoreCase("yes");
+        }
+
+        System.out.println("\nGame Over! You played " + roundsPlayed + " rounds and your score is: " + score);
+        scanner.close();
+    }
+}
