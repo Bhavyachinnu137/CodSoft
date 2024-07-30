@@ -22,12 +22,19 @@ Java Development Kit (JDK) installed on your machine.
 Running the Game
 
 1.Clone the repository to your local machine
-git clone https://github.com/yourusername/guessing-game.git
+
+git clone (https://github.com/Bhavyachinnu137/CodSoft/blob/main/.gitignore)
+
 2.Navigate to the project directory.
+
 cd guessing-game
+
 3.Compile the Java code.
+
 javac GuessingGame.java
+
 4.Run the compiled Java program.
+
 java GuessingGame
 
 Example
